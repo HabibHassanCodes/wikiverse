@@ -10,13 +10,14 @@ export const App = () => {
 
 	async function fetchPages(){
 		try {
-			const response = await fetch(`${apiURL}/wiki`);
+			const response = await fetch(`${apiURL}/wiki/`);
 			const pagesData = await response.json();
 			setPages(pagesData);
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 		}
 	}
+
 
 	useEffect(() => {
 		fetchPages();
@@ -27,6 +28,7 @@ export const App = () => {
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
 			<PagesList pages={pages} />
+		
 		</main>
 	)
 }
